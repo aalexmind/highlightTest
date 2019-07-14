@@ -2,7 +2,7 @@
 
 ## Installation
 Eclipse project
-1) add -Djava.library.path="${workspace_loc}\highlightIDE\Debug" to VM settings
+1) add `-Djava.library.path="${workspace_loc}\highlightIDE\Debug"` to VM settings
 2) update JDK folder includes in Project properties -> C/C++ build -> Settings -> Tool Settings -> C++ Compiler -> includes
 ```bash
 jdk_folder\include
@@ -17,8 +17,8 @@ jdk_folder\include\win32
 javac -d ..\bin -cp . .\cppImp\ColorJNI.java
 javac -h ..\jni  -d ..\bin -cp . .\cppImp\highlightIDE.java
 ```
-5) if used MinGW in highlight.h must be used #include "mingw.thread.h" instead of #include <thread>
-6) possible issue with MinGW: wrong _WIN32_WINNT, should be redefined in cppImp_highlightIDE.cpp (#define _WIN32_WINNT 0x0A00)
+5) if used MinGW in highlight.h must be used _#include "mingw.thread.h"_ instead of #include <thread>
+6) possible issue with MinGW: wrong `_WIN32_WINNT`, should be redefined in _cppImp_highlightIDE.cpp_ (`#define _WIN32_WINNT 0x0A00`)
 
 ## Usage
 1) Run from eclipse

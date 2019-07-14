@@ -17,7 +17,7 @@ jdk_folder\include\win32
 javac -d ..\bin -cp . .\cppImp\ColorJNI.java
 javac -h ..\jni  -d ..\bin -cp . .\cppImp\highlightIDE.java
 ```
-5) if used MinGW in highlight.h must be used _#include "mingw.thread.h"_ instead of #include <thread>
+5) if used MinGW in _highlight.h_ must be used `#include "mingw.thread.h"` instead of `#include <thread>`
 6) possible issue with MinGW: wrong `_WIN32_WINNT`, should be redefined in _cppImp_highlightIDE.cpp_ (`#define _WIN32_WINNT 0x0A00`)
 
 ## Usage

@@ -73,8 +73,6 @@ public class SwingMainWindow extends JFrame implements ActionListener {
 		frame.setJMenuBar(menuBar);
 
 		frame.add(tPane);
-		appendToPane(tPane, "My Name is Too 1 Good.\nI wish I could be ONE of THE BEST on StackOverflow",
-				new Color(0, 0, 0));
 		int size = 500;
 		frame.setSize(size, size);
 		Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();

@@ -5,7 +5,7 @@ import cppImp.ColorJNI;
 public class highlightIDE {
 	static {
 		try {
-			System.loadLibrary("libhighlightIDE");
+			System.loadLibrary("libhighlightTest");
 		} catch (java.lang.UnsatisfiedLinkError e) {
 			System.out.println(e);
 		}

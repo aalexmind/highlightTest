@@ -14,7 +14,13 @@ public class Engine {
 	}
 
 	public static ColorJNI[] getColor(String input) {
-		return highlightIDE.highlightCPP(input, false);
+		ColorJNI[] colorArr = {new ColorJNI()};
+		try {
+			colorArr = highlightIDE.highlightCPP(input, false);
+		} catch (java.lang.UnsatisfiedLinkError e) {
+			System.out.println(e);
+		}
+		return colorArr;
 
 	}
 }

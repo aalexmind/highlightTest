@@ -106,8 +106,11 @@ public class SwingMainWindow extends JFrame implements ActionListener {
 	private void highlight() {
 		flagHighlight = true;
 		String input = tPane.getText();
-		tPane.setText("");
 		ColorJNI[] colorArr = Engine.getColor(input);
+		if (colorArr == null || input.length() != colorArr.length) {
+			return;
+		}
+		tPane.setText("");
 		int first = 0;
 		int last = 0;
 		for (int i = 0; i < input.length(); i++) {

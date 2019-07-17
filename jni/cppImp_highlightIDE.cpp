@@ -31,7 +31,7 @@ JNIEXPORT jobjectArray JNICALL Java_cppImp_highlightIDE_highlightCPP(
     	return NULL;
     }
 
-	jobjectArray resColorArr = (jobjectArray) env->NewObjectArray(arrColorSize, javaColorClass, 0);
+	jobjectArray colorJNIArray = (jobjectArray) env->NewObjectArray(arrColorSize, javaColorClass, 0);
 	for (int i = 0; i < arrColorSize; i++) {
 		jobject newColorObj = env->AllocObject(javaColorClass);
 
@@ -43,10 +43,10 @@ JNIEXPORT jobjectArray JNICALL Java_cppImp_highlightIDE_highlightCPP(
 	    env->SetShortField(newColorObj, gField, colorArr[i].g);
 	    env->SetShortField(newColorObj, bField, colorArr[i].b);
 
-		env->SetObjectArrayElement(resColorArr, i, newColorObj);
+		env->SetObjectArrayElement(colorJNIArray, i, newColorObj);
 	}
 
 	// release resources
 	env->ReleaseStringUTFChars(javaString, 0);
-	return resColorArr;
+	return colorJNIArray;
 }

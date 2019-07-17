@@ -1,5 +1,9 @@
 package base;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import cppImp.CharWithColor;
 import cppImp.ColorJNI;
 import cppImp.highlightIDE;
 import gui.SwingMainWindow;
@@ -14,13 +18,22 @@ public class Engine {
 	}
 
 	public static ColorJNI[] getColor(String input) {
-		ColorJNI[] colorArr = {new ColorJNI()};
+		ColorJNI[] colorJNIArray = { new ColorJNI() };
 		try {
-			colorArr = highlightIDE.highlightCPP(input, false);
+			colorJNIArray = highlightIDE.highlightCPP(input, false);
 		} catch (java.lang.UnsatisfiedLinkError e) {
 			System.out.println(e);
 		}
-		return colorArr;
+		return colorJNIArray;
 
+	}
+
+	public static Map<Integer, CharWithColor> getCharMap(String input) {
+		Map<Integer, CharWithColor> map = new LinkedHashMap<>();
+		ColorJNI[] colorJNIArray = getColor(input);
+		for (int i = 0; i < colorJNIArray.length; i++) {
+			map.put(i, new CharWithColor(input.charAt(i), colorJNIArray[i]));
+		}
+		return map;
 	}
 }

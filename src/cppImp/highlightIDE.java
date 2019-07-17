@@ -1,7 +1,5 @@
 package cppImp;
 
-import cppImp.ColorJNI;
-
 public class highlightIDE {
 	static {
 		try {
